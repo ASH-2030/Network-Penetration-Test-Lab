@@ -1,7 +1,5 @@
 # Network Penetration Test Lab
 
-## Week 3 — Professional Advanced Build
-
 An authorized network penetration testing project conducted in an isolated laboratory environment modeled on a family-owned investment advisory.
 
 The assessment focused on network discovery, TCP port enumeration, service identification, manual validation, vulnerability documentation, remediation, and retesting.
