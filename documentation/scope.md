@@ -1,4 +1,4 @@
-# Week 3 Network Penetration Test — Scope
+# Network Penetration Test on Lab Environment for a Family-Owned Investment Advisory
 
 ## Project
 
