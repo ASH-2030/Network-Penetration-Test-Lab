@@ -4,15 +4,23 @@ An authorized network penetration testing project conducted in an isolated labor
 
 The assessment focused on network discovery, TCP port enumeration, service identification, manual validation, vulnerability documentation, remediation, and retesting.
 
-> **Important:** This project was performed exclusively against an isolated laboratory target. No public, third-party, or real-world systems were tested.
+> **Important:** This project was performed exclusively against an isolated laboratory target. No public, third-party, production, or real-world systems were tested.
 
 ---
 
 ## Project Objective
 
-The objective of this project was to perform a structured network penetration test against an intentionally isolated lab target.
+The objective of this project was to perform a structured network penetration test against an intentionally isolated laboratory target.
 
-The assessment was designed to identify exposed network services and security weaknesses, validate findings using manual and automated techniques, document their security impact, apply remediation, and verify the fixes through retesting.
+The assessment was designed to:
+
+* Identify exposed network services and security weaknesses
+* Validate findings using automated and manual techniques
+* Document security impact
+* Apply appropriate remediation
+* Retest remediated services
+* Perform final verification
+* Maintain organized technical evidence and documentation
 
 ---
 
@@ -60,20 +68,20 @@ The testing environment consisted of a Kali Linux virtual machine and an isolate
 
 ```text
                     Isolated Lab Network
-                           |
-                           |
-                    +-------------+
-                    |  Kali Linux |
-                    |   Tester    |
-                    +-------------+
-                           |
-                     Virtual Link
-                           |
-                           |
-                  +------------------+
-                  |  pentest-target  |
-                  |  192.168.155.30  |
-                  +------------------+
+                              |
+                              |
+                       +-------------+
+                       |  Kali Linux |
+                       |   Tester    |
+                       +-------------+
+                              |
+                        Virtual Link
+                              |
+                              |
+                     +------------------+
+                     |  pentest-target  |
+                     |  192.168.155.30  |
+                     +------------------+
 ```
 
 The target was intentionally isolated so that all testing remained within the authorized laboratory boundary.
@@ -88,7 +96,7 @@ Used for:
 
 * Host discovery
 * Full TCP port scanning
-* Service/version enumeration
+* Service and version enumeration
 * HTTP directory enumeration
 * Banner enumeration
 
@@ -157,10 +165,10 @@ Detailed methodology is available in:
 
 ### Affected Asset
 
-* **Target:** `192.168.155.30`
-* **Port:** `8080/tcp`
-* **Service:** HTTP
-* **Path:** `/backup/`
+* Target: `192.168.155.30`
+* Port: `8080/tcp`
+* Service: HTTP
+* Path: `/backup/`
 
 A controlled backup directory was exposed through the HTTP service.
 
@@ -210,11 +218,11 @@ Full details:
 
 ### Affected Asset
 
-* **Target:** `192.168.155.30`
-* **Port:** `2323/tcp`
-* **Service:** Custom simulated legacy administrative service
-* **Protocol:** Plaintext TCP
-* **Authentication:** None
+* Target: `192.168.155.30`
+* Port: `2323/tcp`
+* Service: Custom simulated legacy administrative service
+* Protocol: Plaintext TCP
+* Authentication: None
 
 A controlled simulated administrative-style service accepted connections without authentication and returned a plaintext status banner.
 
@@ -231,7 +239,7 @@ ENVIRONMENT: LAB-ONLY
 
 Nmap banner enumeration independently retrieved the same laboratory response.
 
-Nmap service fingerprinting was inconclusive. The uncertain `3d-nfsd?` fingerprint was not treated as the actual service identity.
+Nmap service fingerprinting was inconclusive. The uncertain `3d-nfsd?` fingerprint was **not** treated as the actual service identity.
 
 ### Severity
 
@@ -267,7 +275,7 @@ Full details:
 
 After remediation of the identified services, a final full TCP scan was performed:
 
-```text
+```bash
 sudo nmap -sS -sV -p- 192.168.155.30
 ```
 
@@ -284,7 +292,7 @@ The project includes screenshots documenting major stages of the assessment.
 Evidence covers:
 
 * Kali network configuration
-* Isolated lab network
+* Isolated laboratory network
 * Target creation
 * Connectivity verification
 * Host discovery
@@ -299,11 +307,9 @@ Evidence covers:
 * Legacy service enumeration
 * Final verification
 
-Screenshots can be placed in the:
+Screenshots are stored in:
 
 `evidence/`
-
-directory.
 
 ---
 
@@ -315,7 +321,7 @@ Network-Penetration-Test-Lab/
 ├── README.md
 │
 ├── evidence/
-│   └── Screenshots and assessment evidence
+│   └── Assessment screenshots and evidence
 │
 ├── findings/
 │   ├── finding-01-backup-exposure.md
@@ -397,7 +403,7 @@ All testing activities were performed within the defined authorization boundary.
 **Assessment Completed**
 
 * [x] Scope defined
-* [x] Lab environment configured
+* [x] Laboratory environment configured
 * [x] Host discovery completed
 * [x] Full TCP scan completed
 * [x] Services enumerated
